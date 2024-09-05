@@ -26,4 +26,4 @@ Welcome to the Group App Development Project! This assignment challenges your te
 - Ensure your pull request includes a well-structured README file.
 - The README should include a description of the project, setup instructions, team members, and an explanation of the key functionalities implemented, with a screenshoots of your app.
 ## 🌟 Final Motivation:
-**Remember, teamwork makes the dream work! Stay focused, collaborate effectively, and give it your best shot. Together, you can create something amazing! 🚀**
+**Remember, teamwork makes the dream work! Stay focused, collaborate effectively, and give it your best shot. <br> Together, you can create something amazing! 🚀**
