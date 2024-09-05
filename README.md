@@ -28,4 +28,4 @@ Welcome to the Group App Development Project! This assignment challenges your te
 
 <br> <br>
 ### 🌟 Final Motivation:
-**Remember, teamwork makes the dream work! Stay focused, collaborate effectively, and give it your best shot. <br> Together, you can create something amazing! 🚀**
+**Remember, teamwork makes the dream work! Stay focused, collaborate effectively, and give it your best shot. Together, you can create something amazing! 🚀**
