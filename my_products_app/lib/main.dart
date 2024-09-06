@@ -8,11 +8,11 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await setup();
   runApp(
-  DevicePreview(
-    enabled: !kReleaseMode,
-    builder: (context) =>const MainApp(), // Wrap your app
-  ),
-);
+    DevicePreview(
+      enabled: !kReleaseMode,
+      builder: (context) => const MainApp(), // Wrap your app
+    ),
+  );
 }
 
 class MainApp extends StatelessWidget {

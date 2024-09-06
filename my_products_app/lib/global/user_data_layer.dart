@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:my_products_app/model/user_model.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:my_products_app/services/setup.dart';
 
 class UserDataLayer {
   UserDataLayer() {
@@ -11,16 +11,9 @@ class UserDataLayer {
         cr: "3214",
         email: "email@",
         status: false));
-    inti();
     loadUser();
   }
   List<UserModel> users = [];
-
-  late final SharedPreferences storage;
-
-  void inti() async {
-    storage = await SharedPreferences.getInstance();
-  }
 
   bool checkUser({required String email, required String password}) {
     for (UserModel element in users) {
@@ -44,11 +37,18 @@ class UserDataLayer {
         cr: cr,
         email: email,
         status: status);
-    saveUserStorage(user);
+    users.add(user);
+    saveUserStorage();
   }
 
-  void saveUserStorage(UserModel user) {
+  void saveUserStorage() {
+    if (kDebugMode) {
+      print("Enter to save user function");
+    }
     try {
+      if (kDebugMode) {
+        print("Enter to storage");
+      }
       storage.setString("user", UserModel.encode(users));
     } catch (e) {
       if (kDebugMode) {
@@ -57,14 +57,14 @@ class UserDataLayer {
     }
   }
 
-  void loadUser() {
+  loadUser() async {
     try {
       if (storage.containsKey("user")) {
-        users = UserModel.decode(storage.getString("product")!);
+        users = UserModel.decode(storage.getString("user")!);
       }
     } catch (e) {
       if (kDebugMode) {
-        print("Error in load user data");
+        print("error in loadin user data");
       }
     }
   }
