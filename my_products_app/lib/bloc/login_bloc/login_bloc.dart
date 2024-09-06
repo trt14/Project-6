@@ -22,6 +22,8 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
 
   FutureOr<void> loginCheckMethod(event, emit) {
     if (userLayer.checkUser(email: event.email, password: event.password)) {
+      userLayer.changeUserState(event.email);
+      userLayer.updateCurrentUser();
       Navigator.pushReplacement(event.context,
           MaterialPageRoute(builder: (context) => const HomeScreen()));
       emit(LoginSuccessState());

@@ -1,21 +1,17 @@
 import 'package:flutter/foundation.dart';
 import 'package:my_products_app/model/product_model.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:my_products_app/services/setup.dart';
 
 class  ProductDataLayer {
   
 ProductDataLayer(){
-    init();
     loadProduct();
 }
   List<ProductModel> products = [];
 
-  late final SharedPreferences storage;
 
 
-  void init() async {
-    storage = await SharedPreferences.getInstance();
-  }
+
 
   void savedProduct(ProductModel product) {
     products.add(product);

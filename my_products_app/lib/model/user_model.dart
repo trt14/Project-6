@@ -7,16 +7,13 @@ class UserModel {
   late final int id;
   late final String email;
   late final String cr;
-  late final bool status;
+  late bool status;
   UserModel.fromJson(Map<String, dynamic> json) {
     name = json['name'];
     password = json['password'];
     email = json['email'];
-
     id = json['id'];
-
     status = json['status'];
-
     cr = json['cr'];
   }
 

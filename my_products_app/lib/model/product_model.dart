@@ -8,7 +8,9 @@ class ProductModel {
     required this.imageSrc,
     required this.quantity,
     required this.available,
+    required this.userId
   });
+  late final int userId;
   late final String name;
   late final int price;
   late final String category;
@@ -23,6 +25,8 @@ class ProductModel {
     imageSrc = json['imageSrc'];
     quantity = json['quantity'];
     available = json['available'];
+        userId = json['userId'];
+
   }
 
   Map<String, dynamic> toJson() {
@@ -33,6 +37,8 @@ class ProductModel {
     data['imageSrc'] = imageSrc;
     data['quantity'] = quantity;
     data['available'] = available;
+    data['userId'] = userId;
+
     return data;
   }
 
