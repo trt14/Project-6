@@ -1,36 +1,38 @@
 import 'dart:convert';
 
 class ProductModel {
-  ProductModel({
-    required this.name,
-    required this.price,
-    required this.category,
-    required this.imageSrc,
-    required this.quantity,
-    required this.available,
-    required this.userId
-  });
+  ProductModel(
+      {required this.productId,
+      required this.name,
+      required this.price,
+      required this.category,
+      required this.imageSrc,
+      required this.quantity,
+      required this.available,
+      required this.userId});
+  late final int productId;
   late final int userId;
-  late final String name;
-  late final int price;
-  late final String category;
-  late final String imageSrc;
-  late final int quantity;
-  late final bool available;
+  late String name;
+  late int price;
+  late String category;
+  late String imageSrc;
+  late int quantity;
+  late bool available;
 
   ProductModel.fromJson(Map<String, dynamic> json) {
+    productId = json['productId'];
     name = json['name'];
     price = json['price'];
     category = json['category'];
     imageSrc = json['imageSrc'];
     quantity = json['quantity'];
     available = json['available'];
-        userId = json['userId'];
-
+    userId = json['userId'];
   }
 
   Map<String, dynamic> toJson() {
     final data = <String, dynamic>{};
+    data['productId'] = productId;
     data['name'] = name;
     data['price'] = price;
     data['category'] = category;
@@ -48,7 +50,7 @@ class ProductModel {
             .toList(),
       );
 
- static List<ProductModel> decode(String products) =>
+  static List<ProductModel> decode(String products) =>
       (json.decode(products) as List<dynamic>)
           .map<ProductModel>((product) => ProductModel.fromJson(product))
           .toList();
