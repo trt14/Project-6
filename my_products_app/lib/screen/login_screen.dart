@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_products_app/helper/scree.dart';
+import 'package:my_products_app/screen/signup_screen.dart';
+import 'package:my_products_app/widget/custom_button.dart';
 import 'package:my_products_app/widget/custom_text_field.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -59,22 +61,10 @@ class LoginScreen extends StatelessWidget {
                     SizedBox(
                       height: context.getHight(value: 15),
                     ),
-                    Container(
-                      width: context.getWidth(),
-                      constraints: const BoxConstraints(maxWidth: 400),
-                      height: 45,
-                      alignment: Alignment.center,
-                      decoration: BoxDecoration(
-                          color: const Color(0xff008092),
-                          borderRadius: BorderRadius.circular(8)),
-                      child: const Text(
-                        "Login",
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 20),
-                      ),
-                    ),
+                    const CustomButton(
+                        text: "Login",
+                        color: Colors.white,
+                        bgColor: Color(0xff008092)),
                     SizedBox(
                       height: context.getHight(value: 10),
                     ),
@@ -82,21 +72,17 @@ class LoginScreen extends StatelessWidget {
                     const SizedBox(
                       height: 20,
                     ),
-                    Container(
-                      width: context.getWidth(),
-                      constraints: const BoxConstraints(maxWidth: 400),
-                      height: 45,
-                      alignment: Alignment.center,
-                      decoration: BoxDecoration(
-                          color: const Color(0xffe6f5f3),
-                          borderRadius: BorderRadius.circular(8)),
-                      child: const Text(
-                        "Register",
-                        style: TextStyle(
-                            color: Color(0xff0d9285),
-                            fontWeight: FontWeight.bold,
-                            fontSize: 20),
-                      ),
+                    CustomButton(
+                      text: "Register",
+                      color: const Color(0xff0d9285),
+                      bgColor: const Color(0xffe6f5f3),
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const SignupScreen()),
+                        );
+                      },
                     ),
                   ],
                 )
