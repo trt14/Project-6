@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_products_app/helper/scree.dart';
+import 'package:my_products_app/helper/screen.dart';
 
 class CustomButton extends StatelessWidget {
   const CustomButton(
