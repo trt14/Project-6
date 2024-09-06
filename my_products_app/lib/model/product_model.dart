@@ -5,14 +5,14 @@ class ProductModel {
     required this.name,
     required this.price,
     required this.category,
-    required this.src,
+    required this.imageSrc,
     required this.quantity,
     required this.available,
   });
   late final String name;
   late final int price;
   late final String category;
-  late final String src;
+  late final String imageSrc;
   late final int quantity;
   late final bool available;
 
@@ -20,7 +20,7 @@ class ProductModel {
     name = json['name'];
     price = json['price'];
     category = json['category'];
-    src = json['src'];
+    imageSrc = json['imageSrc'];
     quantity = json['quantity'];
     available = json['available'];
   }
@@ -30,7 +30,7 @@ class ProductModel {
     data['name'] = name;
     data['price'] = price;
     data['category'] = category;
-    data['src'] = src;
+    data['imageSrc'] = imageSrc;
     data['quantity'] = quantity;
     data['available'] = available;
     return data;
