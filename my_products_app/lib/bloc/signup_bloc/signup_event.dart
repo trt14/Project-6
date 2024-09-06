@@ -8,3 +8,6 @@ class CreateAccountEvent extends SignupEvent {
   final BuildContext context;
   CreateAccountEvent({required this.user, required this.context});
 }
+class FaildCreateAccountEvent extends SignupEvent{
+  
+}

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class CustomTextField extends StatelessWidget {
   const CustomTextField(
@@ -6,12 +7,14 @@ class CustomTextField extends StatelessWidget {
       required this.title,
       this.controller,
       this.icon,
-      this.isPassword = false});
+      this.isPassword = false, this.keyboardType, this.inputFormatters, this.errorText});
   final String title;
   final TextEditingController? controller;
   final Widget? icon;
   final bool? isPassword;
-
+  final TextInputType? keyboardType;
+  final List<TextInputFormatter>? inputFormatters;
+  final String? errorText;
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -22,9 +25,12 @@ class CustomTextField extends StatelessWidget {
           children: [
             Align(alignment: Alignment.centerLeft, child: Text(title)),
             TextField(
+                keyboardType: keyboardType,
+                inputFormatters: inputFormatters,
                 obscureText: isPassword!,
                 controller: controller,
                 decoration: InputDecoration(
+                  errorText: errorText,
                   filled: true,
                   fillColor: const Color(0xfff5f5f5),
                   focusedBorder: const OutlineInputBorder(

@@ -15,6 +15,12 @@ class SignupBloc extends Bloc<SignupEvent, SignupState> {
   SignupBloc() : super(SignupInitial()) {
     on<SignupEvent>((event, emit) {});
     on<CreateAccountEvent>(signupMethod);
+    on<FaildCreateAccountEvent>(
+      (event, emit) {
+        emit(
+            SignupErrorState(message: "you must comply with all requiredment"));
+      },
+    );
   }
 
   FutureOr<void> signupMethod(event, emit) {
