@@ -1,7 +1,7 @@
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:my_products_app/screen/login_screen.dart';
+import 'package:my_products_app/screen/check_login_screen.dart';
 import 'package:my_products_app/services/setup.dart';
 
 void main() async {
@@ -20,6 +20,6 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(home: LoginScreen());
+    return const MaterialApp(home: CheckLoginScreen());
   }
 }

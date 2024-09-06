@@ -12,7 +12,10 @@ class UserDataLayer {
         email: "email@",
         status: false));
     loadUser();
+    updateCurrentUser();
   }
+  late UserModel? user;
+
   List<UserModel> users = [];
 
   bool checkUser({required String email, required String password}) {
@@ -41,6 +44,26 @@ class UserDataLayer {
     saveUserStorage();
   }
 
+  updateCurrentUser() {
+    if (users.isNotEmpty) {
+      final temp = users.where((element) => element.status == true);
+      if (temp.isNotEmpty) {
+        user = temp.first;
+      } else {
+        user = null;
+      }
+    }
+  }
+
+  changeUserState(String email) {
+    for (UserModel element in users) {
+      if (element.email == email) {
+        element.status = !element.status;
+      }
+    }
+    saveUserStorage();
+  }
+
   void saveUserStorage() {
     if (kDebugMode) {
       print("Enter to save user function");
@@ -58,7 +81,9 @@ class UserDataLayer {
   }
 
   loadUser() async {
+    print("load user data");
     try {
+      print("storage ____");
       if (storage.containsKey("user")) {
         users = UserModel.decode(storage.getString("user")!);
       }
