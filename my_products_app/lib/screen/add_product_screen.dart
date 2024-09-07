@@ -12,7 +12,6 @@ class AddProductScreen extends StatelessWidget {
     final TextEditingController productPriceController =
         TextEditingController();
     final TextEditingController productQTYController = TextEditingController();
-
     return Scaffold(
       body: Center(
         child: Column(

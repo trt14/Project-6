@@ -3,6 +3,7 @@ import 'package:get_it/get_it.dart';
 import 'package:my_products_app/global/user_data_layer.dart';
 import 'package:my_products_app/helper/screen.dart';
 import 'package:my_products_app/screen/add_product_screen.dart';
+import 'package:my_products_app/screen/edit_product_screen.dart';
 import 'package:my_products_app/widget/custom_button.dart';
 import 'package:my_products_app/widget/custom_text_field.dart';
 
@@ -43,7 +44,14 @@ class HomeScreen extends StatelessWidget {
                     productPrice: 1300,
                     qty: 0,
                     id: 1,
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const EditProductScreen(
+                                    id: 1,
+                                  )));
+                    },
                     onPressedUpdateQTY: () {},
                   ),
                   const CustomCardProduct(

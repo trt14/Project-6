@@ -42,6 +42,7 @@ class CustomTextField extends StatelessWidget {
                     ),
                   ),
                   hintText: "Enter your $title",
+                  
                   suffixIcon: icon,
                   border: const OutlineInputBorder(),
                 )),
