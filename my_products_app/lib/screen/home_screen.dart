@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:my_products_app/global/user_data_layer.dart';
 import 'package:my_products_app/helper/screen.dart';
+import 'package:my_products_app/screen/add_product_screen.dart';
 import 'package:my_products_app/widget/custom_button.dart';
 import 'package:my_products_app/widget/custom_text_field.dart';
 
@@ -45,42 +46,42 @@ class HomeScreen extends StatelessWidget {
                     onTap: () {},
                     onPressedUpdateQTY: () {},
                   ),
-                  CustomCardProduct(
+                  const CustomCardProduct(
                     imgSrc: "assets/images/adidas-shoes1.png",
                     productName: "Something",
                     productPrice: 1300,
                     qty: 5,
                     id: 1,
                   ),
-                  CustomCardProduct(
+                  const CustomCardProduct(
                     imgSrc: "assets/images/adidas-shoes1.png",
                     productName: "Something",
                     productPrice: 1300,
                     qty: 3,
                     id: 1,
                   ),
-                  CustomCardProduct(
+                  const CustomCardProduct(
                     imgSrc: "assets/images/adidas-shoes1.png",
                     productName: "Something",
                     productPrice: 1300,
                     qty: 20,
                     id: 1,
                   ),
-                  CustomCardProduct(
+                  const CustomCardProduct(
                     imgSrc: "assets/images/adidas-shoes1.png",
                     productName: "Something",
                     productPrice: 1300,
                     qty: 3000,
                     id: 1,
                   ),
-                  CustomCardProduct(
+                  const CustomCardProduct(
                     imgSrc: "assets/images/adidas-shoes1.png",
                     productName: "Something",
                     productPrice: 1300,
                     qty: 300,
                     id: 1,
                   ),
-                  CustomCardProduct(
+                  const CustomCardProduct(
                     imgSrc: "assets/images/adidas-shoes1.png",
                     productName: "Something",
                     productPrice: 1300,
@@ -93,7 +94,12 @@ class HomeScreen extends StatelessWidget {
           ],
         ),
         floatingActionButton: FloatingActionButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => const AddProductScreen()));
+          },
           foregroundColor: Colors.white,
           backgroundColor: const Color(0xff008092),
           child: const Icon(Icons.add),

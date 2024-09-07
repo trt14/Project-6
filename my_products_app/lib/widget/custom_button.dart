@@ -19,7 +19,7 @@ class CustomButton extends StatelessWidget {
       onTap: onTap,
       child: Container(
         width: context.getWidth(),
-        constraints: const BoxConstraints(maxWidth: 400),
+        constraints: const BoxConstraints(maxWidth: 300),
         height: 45,
         alignment: Alignment.center,
         decoration: BoxDecoration(

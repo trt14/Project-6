@@ -7,7 +7,10 @@ class CustomTextField extends StatelessWidget {
       required this.title,
       this.controller,
       this.icon,
-      this.isPassword = false, this.keyboardType, this.inputFormatters, this.errorText});
+      this.isPassword = false,
+      this.keyboardType,
+      this.inputFormatters,
+      this.errorText});
   final String title;
   final TextEditingController? controller;
   final Widget? icon;
@@ -19,7 +22,7 @@ class CustomTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: ConstrainedBox(
-        constraints: const BoxConstraints(maxWidth: 400),
+        constraints: const BoxConstraints(maxWidth: 300),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
