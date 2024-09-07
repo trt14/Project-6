@@ -3,6 +3,7 @@ import 'package:get_it/get_it.dart';
 import 'package:my_products_app/global/user_data_layer.dart';
 import 'package:my_products_app/helper/screen.dart';
 import 'package:my_products_app/widget/custom_button.dart';
+import 'package:my_products_app/widget/custom_text_field.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -42,6 +43,7 @@ class HomeScreen extends StatelessWidget {
                     qty: 0,
                     id: 1,
                     onTap: () {},
+                    onPressedUpdateQTY: () {},
                   ),
                   CustomCardProduct(
                     imgSrc: "assets/images/adidas-shoes1.png",
@@ -108,7 +110,10 @@ class CustomCardProduct extends StatelessWidget {
       required this.productName,
       required this.productPrice,
       required this.qty,
+      this.onLongPress,
       this.onTap,
+      this.controller,
+      this.onPressedUpdateQTY,
       required this.id});
   final String imgSrc;
   final String productName;
@@ -116,11 +121,54 @@ class CustomCardProduct extends StatelessWidget {
   final int qty;
   final int id;
   final Function()? onTap;
-
+  final Function()? onLongPress;
+  final Function()? onPressedUpdateQTY;
+  final TextEditingController? controller;
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: onTap,
+      onLongPress: () {
+        showDialog<void>(
+          context: context,
+          builder: (BuildContext context) {
+            return SizedBox(
+              height: context.getHight(value: 5),
+              child: AlertDialog(
+                title: Text('Update QTY $productName'),
+                content: SizedBox(
+                  height: 100,
+                  child: CustomTextField(
+                    controller: controller,
+                    title: 'QTY Item',
+                  ),
+                ),
+                actions: <Widget>[
+                  TextButton(
+                    style: TextButton.styleFrom(
+                      textStyle: Theme.of(context).textTheme.labelLarge,
+                    ),
+                    child: const Text('cancel'),
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                      if (controller != null) {
+                        controller!.clear();
+                      }
+                    },
+                  ),
+                  TextButton(
+                    style: TextButton.styleFrom(
+                      textStyle: Theme.of(context).textTheme.labelLarge,
+                    ),
+                    child: const Text('save'),
+                    onPressed: onPressedUpdateQTY,
+                  ),
+                ],
+              ),
+            );
+          },
+        );
+      },
       child: Container(
         width: context.getWidth(value: 2.5),
         height: context.getWidth(value: 2),
