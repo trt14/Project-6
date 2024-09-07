@@ -5,10 +5,10 @@ import 'package:my_products_app/services/setup.dart';
 class UserDataLayer {
   UserDataLayer() {
     users.add(UserModel(
-        name: "name",
+        name: "admin",
         password: "1234",
         id: 1,
-        cr: "3214",
+        cr: "123456789",
         email: "email@",
         status: false));
     loadUser();

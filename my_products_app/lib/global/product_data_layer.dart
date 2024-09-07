@@ -6,7 +6,15 @@ class ProductDataLayer {
   ProductDataLayer() {
     loadProduct();
   }
-  List<ProductModel> products = [];
+  List<ProductModel> products = [ProductModel(
+    productId: 1, 
+    name: "Shose", 
+    price: 1300, 
+    category: "Cloth",
+     imageSrc:  "assets/images/adidas-shoes1.png", 
+     quantity: 0,
+      available: false,
+       userId: 1)];
   List<ProductModel> userproducts = [];
 
   void savedProduct(ProductModel product) {
