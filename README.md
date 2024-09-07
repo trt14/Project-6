@@ -64,10 +64,14 @@ flutter run
 - **Edit Products**: Navigate to the product list and long-press on any product to edit its quantity.
 - **User Authentication**: Register and login screens ensure only authorized users can access the app.
 
+## video 
+
+[![Watch the video](./screenshot/login_screen.jpg)](https://youtu.be/4cQtKZcWs2o)
+
 ## Screenshots
 
 ### Login screen
-![alt text](./screenshot/add_new_account.jpg)
+![alt text](./screenshot/login_screen.jpg)
 
 ### Add new account screen
 ![alt text](./screenshot/add_new_account.jpg)
