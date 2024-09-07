@@ -90,8 +90,8 @@ class LoginScreen extends StatelessWidget {
                                 print("login button was clik");
                               }
                               bloc.add(ActionLoginEvent(
-                                  email: emailController.text,
-                                  password: passwordController.text,
+                                  email: emailController.text.trim(),
+                                  password: passwordController.text.trim(),
                                   context: context));
                             },
                           ),

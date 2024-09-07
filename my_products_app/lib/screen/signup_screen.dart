@@ -95,7 +95,7 @@ class SignupScreen extends StatelessWidget {
                               bloc.add(CreateAccountEvent(
                                   context: context,
                                   user: UserModel(
-                                      name: nameController.text.trim(),
+                                      name: nameController.text.trim().toLowerCase(),
                                       password: passwordController.text.trim(),
                                       id: 0,
                                       cr: crController.text.trim(),
