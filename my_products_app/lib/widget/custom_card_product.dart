@@ -1,4 +1,6 @@
+import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:my_products_app/helper/screen.dart';
 import 'package:my_products_app/widget/custom_text_field.dart';
 
@@ -38,6 +40,11 @@ class CustomCardProduct extends StatelessWidget {
                 content: SizedBox(
                   height: 100,
                   child: CustomTextField(
+                    keyboardType: TextInputType.number,
+                    inputFormatters: [
+                      FilteringTextInputFormatter.digitsOnly,
+                      FilteringTextInputFormatter.deny(RegExp(r'\s'))
+                    ],
                     controller: controller,
                     title: 'QTY Item',
                   ),
@@ -80,11 +87,16 @@ class CustomCardProduct extends StatelessWidget {
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Image.asset(
-                  imgSrc,
-                  width: 120,
-                  height: 80,
+                const SizedBox(
+                  height: 20,
                 ),
+                imgSrc.contains("assets/images/")
+                    ? Image.asset(
+                        imgSrc,
+                        width: 120,
+                        height: 60,
+                      )
+                    : Image.file(width: 120, height: 60, File(imgSrc)),
                 const SizedBox(
                   height: 15,
                 ),

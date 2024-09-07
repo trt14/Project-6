@@ -8,16 +8,14 @@ class ProductModel {
       required this.category,
       required this.imageSrc,
       required this.quantity,
-      required this.available,
       required this.userId});
-  late final int productId;
-  late final int userId;
+  late  int productId;
+  late  int userId;
   late String name;
   late int price;
   late String category;
   late String imageSrc;
   late int quantity;
-  late bool available;
 
   ProductModel.fromJson(Map<String, dynamic> json) {
     productId = json['productId'];
@@ -26,7 +24,6 @@ class ProductModel {
     category = json['category'];
     imageSrc = json['imageSrc'];
     quantity = json['quantity'];
-    available = json['available'];
     userId = json['userId'];
   }
 
@@ -38,7 +35,6 @@ class ProductModel {
     data['category'] = category;
     data['imageSrc'] = imageSrc;
     data['quantity'] = quantity;
-    data['available'] = available;
     data['userId'] = userId;
 
     return data;

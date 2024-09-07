@@ -6,20 +6,36 @@ class ProductDataLayer {
   ProductDataLayer() {
     loadProduct();
   }
-  List<ProductModel> products = [ProductModel(
-    productId: 1, 
-    name: "Shose", 
-    price: 1300, 
-    category: "Cloth",
-     imageSrc:  "assets/images/adidas-shoes1.png", 
-     quantity: 0,
-      available: false,
-       userId: 1)];
+  List<ProductModel> products = [
+    ProductModel(
+        productId: 1,
+        name: "Shose",
+        price: 1300,
+        category: "Cloth",
+        imageSrc: "assets/images/placeholder.png",
+        quantity: 0,
+        userId: 1)
+  ];
   List<ProductModel> userproducts = [];
 
   void savedProduct(ProductModel product) {
     products.add(product);
+    userproducts.add(product);
     savedProductStorage();
+  }
+
+  int activeProducts() {
+    return userproducts
+        .where((element) => element.quantity > 0)
+        .toList()
+        .length;
+  }
+
+  int unctiveProducts() {
+    return userproducts
+        .where((element) => element.quantity == 0)
+        .toList()
+        .length;
   }
 
   void savedProductStorage() {
@@ -48,46 +64,15 @@ class ProductDataLayer {
     userproducts = products.where((element) => element.userId == id).toList();
   }
 
-  void editProduct(int id, ProductModel editProduct) {
-    for (ProductModel product in products) {
-      if (product.productId == id) {
-        product.name = editProduct.name;
-        product.available = editProduct.available;
-        product.category = editProduct.category;
-        product.imageSrc = editProduct.imageSrc;
-        product.price = editProduct.price;
-        product.quantity = editProduct.quantity;
-      }
-    }
-    for (ProductModel product in userproducts) {
-      if (product.productId == id) {
-        product.name = editProduct.name;
-        product.available = editProduct.available;
-        product.category = editProduct.category;
-        product.imageSrc = editProduct.imageSrc;
-        product.price = editProduct.price;
-        product.quantity = editProduct.quantity;
+  void updateProduct(ProductModel product) {
+    for (var element in products) {
+      if (element.productId == product.productId) {
+        element.name = product.name;
+        element.price = product.price;
+        element.quantity = product.quantity;
       }
     }
     savedProductStorage();
+    loadUserProducts(product.userId);
   }
-
-  void changeProductAvaliblty(int id) {
-    for (ProductModel product in userproducts) {
-      if (product.productId == id) {
-        product.available = !product.available;
-      }
-    }
-    for (ProductModel product in products) {
-      if (product.productId == id) {
-        product.available = !product.available;
-      }
-    }
-    savedProductStorage();
-  }
-
-  //optional functions
-  bool userProductStatus() => userproducts.isNotEmpty ? true : false;
-  List<ProductModel> productFilter(String category) =>
-      products.where((element) => element.category == category).toList();
 }

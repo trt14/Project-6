@@ -124,7 +124,6 @@ class SignupScreen extends StatelessWidget {
                                 crValidator = false;
                               }
                               bloc.add(FaildCreateAccountEvent());
-                              print("change validator");
                             }
                           },
                           text: "SignUp",

@@ -6,15 +6,15 @@ class UserDataLayer {
   UserDataLayer() {
     users.add(UserModel(
         name: "admin",
-        password: "1234",
+        password: "1234567",
         id: 1,
         cr: "123456789",
-        email: "email@",
+        email: "admin@email.com",
         status: false));
     loadUser();
     updateCurrentUser();
   }
-  late UserModel? user;
+  UserModel? user;
 
   List<UserModel> users = [];
 
@@ -61,6 +61,7 @@ class UserDataLayer {
         element.status = !element.status;
       }
     }
+    updateCurrentUser();
     saveUserStorage();
   }
 
@@ -81,9 +82,7 @@ class UserDataLayer {
   }
 
   loadUser() async {
-    print("load user data");
     try {
-      print("storage ____");
       if (storage.containsKey("user")) {
         users = UserModel.decode(storage.getString("user")!);
       }
