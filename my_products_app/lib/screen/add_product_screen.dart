@@ -60,8 +60,6 @@ class AddProductScreen extends StatelessWidget {
                             imageSrc = image!.path;
                           } catch (e) {
                             if (kDebugMode) {
-                              print("value of $imageSrc");
-                              imageSrc == "" ? print("true") : print("false");
                               print(e);
                             }
                           }
@@ -168,7 +166,9 @@ class AddProductScreen extends StatelessWidget {
                             nameValidator = false;
                             priceValidator = false;
                             qtyValidator = false;
-
+                            if (imageSrc == "" || imageSrc == null) {
+                              imageSrc = "assets/images/placeholder.png";
+                            }
                             addNewProduct(
                                 nameValidator: nameValidator,
                                 priceValidator: priceValidator,
@@ -179,9 +179,6 @@ class AddProductScreen extends StatelessWidget {
                                 price: price,
                                 qty: qty,
                                 imageSrc: imageSrc!);
-                          }
-                          if (imageSrc != "" || imageSrc != null) {
-                            imageSrc = "assets/images/placeholder.png";
                           }
                         },
                       ),
